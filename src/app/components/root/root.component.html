@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+	  <div class="col">
+      <button 
+        class="btn btn-link"
+        routerLink="/">
+        Home
+      </button>
+      <button 
+        class="btn btn-link" 
+        routerLink="/add">
+        Add user
+      </button>
+      <button 
+        class="btn btn-link"
+        routerLink="/manage">
+        Manage users
+      </button>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>	
+</div>

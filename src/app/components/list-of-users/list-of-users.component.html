@@ -1,0 +1,49 @@
+<div *ngIf="users.length">  
+  <accordion>
+    <accordion-group *ngFor="let user of users" class="hover">
+      <div accordion-heading>
+        <div class="row">
+          <div class="col-8 col-md-3 ">  
+            {{ user.username }}           
+          </div>
+          <div class=" hovel col-md-5 col-lg-4 d-none d-md-block">    
+            {{ user.email }}         
+          </div>
+          <div class="col-lg-3 d-none d-lg-block">  
+            {{ user.password }}          
+          </div> 
+          <div class="col-2 col-lg-1">  
+            {{ user.sex }}
+          </div>
+          <div class="col-2 col-lg-1">  
+            {{ user.newsletter }}          
+          </div>
+        </div>
+      </div>
+      <button 
+        class="btn btn-info"
+        [disabled]="blockAllEditUserButtons">
+        Edit user...
+      </button>
+      <button 
+        class="btn btn-danger"
+        
+        [disabled]="blockAllDeleteUserButtons">
+        Delete user...
+      </button>
+    </accordion-group>
+  </accordion>
+
+</div>
+
+<div *ngIf="!users.length">
+  <div class="row">
+    <div class="col">
+      <div class="no-user">
+        There is no user here 😭
+      </div>      
+    </div>
+  </div>
+</div>
+
+

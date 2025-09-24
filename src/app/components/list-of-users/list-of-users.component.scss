@@ -1,0 +1,19 @@
+.hover:hover {
+  border: 2px groove burlywood;
+  border-radius: 5px;
+}
+
+.no-user {
+  background-color: darkred;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+.no-space {
+  // padding: 0px;
+  // margin: 0px;
+}

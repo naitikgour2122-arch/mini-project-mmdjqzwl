@@ -1,0 +1,14 @@
+{
+  "apps": [{
+    "styles": ["assets/scss/main.scss"],
+    "assets": [
+      "assets", 
+      "./assets/favicon.ico"
+    ],
+    "root": "src",
+    "main": "index.ts"
+  }],
+  "defaults": {
+    "styleExt": "scss"
+  }
+}

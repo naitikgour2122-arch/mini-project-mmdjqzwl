@@ -1,0 +1,51 @@
+<div (click)="$event.preventDefault()">
+  <tabset> 
+    <br>  
+    <tab *ngFor="let tab of tabs"
+      [heading]="tab.title"
+      [active]="tab.active"
+      (select)="tab.active = true"
+      (deselect)="tab.active = false"
+      [disabled]="tab.disabled"
+      [removable]="tab.removable"
+      (removed)="removeTabHandler(tab)">
+      <div [ngSwitch]="tab.content">
+        
+        <!-- ------------------------------------------------------------------------------------------------ -->
+
+        <div *ngSwitchCase="'list-of-users'">
+          <button 
+            class="btn btn-success"
+            (click)="addBulkData()">
+            Add bulk users
+          </button>      
+          <button 
+            class="btn btn-danger"
+            (click)="openAllDataDeletionDialog()"            
+            [disabled]="blockControls.blockDeleteAllUsersButton.value()">
+            Delete all the users
+          </button>
+          <hr>
+          <fg-list-of-users
+            (noUserEvent)="blockControls.blockDeleteAllUsersButton.noUsers = $event"
+            [blockAllDeleteUserButtons]="blockControls.blockAllDeleteUserButtons"
+            [blockAllEditUserButtons]="blockControls.blockAllEditUserButtons">
+          </fg-list-of-users>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------ -->
+
+        <div *ngSwitchCase="'delete-all-users'">  
+          <fg-delete-all-users 
+            (onDeleteAllUsers)="wipeData($event); removeTabHandler(tab); activateMainTab();">
+          </fg-delete-all-users>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------ -->
+
+      </div>
+    </tab>
+
+    
+  </tabset>
+</div>

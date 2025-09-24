@@ -1,0 +1,121 @@
+<h3 
+  class="col bg-info text-white text-center"
+  style="padding:10px">
+  Add a new user
+</h3>
+<form>
+
+  <div class="form-group">
+    <label for="inputUsername">
+      Username
+    </label>
+    <input 
+      #usernameNGInput
+      type="email" 
+      class="form-control" 
+      id="inputUsername"
+      aria-describedby="usernameStatus"    
+      placeholder="Enter the username">
+    <small 
+      id="usernameStatus" 
+      class="form-text"
+      [ngStyle]="{'color':errorStatus.username.color}">
+      {{ errorStatus.username.message}}
+    </small>   
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail">
+      Email address
+    </label>
+    <input 
+      #emailNGInput
+      type="email" 
+      class="form-control" 
+      id="inputEmail" 
+      aria-describedby="emailStatus" 
+      placeholder="Enter email">
+    <small 
+      id="emailStatus" 
+      class="form-text"
+      [ngStyle]="{'color':errorStatus.email.color}">
+      {{ errorStatus.email.message}}
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword">
+      Password
+    </label>
+    <input 
+      #passwordNGInput
+      type="password" 
+      class="form-control"
+      id="inputPassword" 
+      placeholder="Password">
+    <small 
+      id="passwordStatus" 
+      class="form-text"
+      [ngStyle]="{'color':errorStatus.password.color}">
+      {{ errorStatus.password.message}}
+    </small>
+  </div>
+  
+  Sex
+  <div class="form-check">
+    <input 
+      class="form-check-input" 
+      type="radio" 
+      name="sexInput" 
+      id="male" 
+      (change)="onChangeSex($event.target.value)"
+      value="male">
+    <label class="form-check-label" for="male">
+      male
+    </label>
+  </div>
+  <div class="form-check">
+    <input 
+      class="form-check-input" 
+      type="radio" 
+      name="sexInput" 
+      id="female" 
+      (change)="onChangeSex($event.target.value)"
+      value="female">
+    <label class="form-check-label" for="female">
+      female
+    </label>
+  </div>
+  <small 
+    id="sexStatus" 
+    class="form-text"
+    [ngStyle]="{'color':errorStatus.sex.color}">
+    {{ errorStatus.sex.message}}
+  </small><br>
+
+  <div class="form-check">
+    <input 
+      type="checkbox" 
+      class="form-check-input"
+      name="newsletterInput" 
+      
+      (change)="onChangeNewsletter($event.target.checked)"
+      id="exampleCheck1">
+    <label 
+      class="form-check-label" 
+      for="exampleCheck1">Add me to newsletter</label>
+  </div><br>
+
+  <button 
+    type="submit" 
+    class="btn btn-primary"
+    (click)="addNewUser()">
+    Add user...
+  </button>
+  <button 
+    type="reset" 
+    class="btn btn-warning"
+    (click)="resetErrorStatus()">
+    Reset
+  </button>  
+</form>
